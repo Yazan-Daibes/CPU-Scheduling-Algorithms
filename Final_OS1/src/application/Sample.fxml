@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="693.0" prefWidth="981.0" style="-fx-background-color: #BBDEFB;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+   <children>
+      <Label alignment="CENTER" layoutX="14.0" layoutY="5.0" prefHeight="90.0" prefWidth="942.0" style="-fx-background-color: #1976D2 #19#536DFE76D2;" text="Simulation of CPU Scheduling Algorithms" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <font>
+            <Font name="System Bold" size="37.0" />
+         </font>
+      </Label>
+      <Button fx:id="Generate" alignment="CENTER" layoutX="315.0" layoutY="103.0" mnemonicParsing="false" onAction="#GeneratRandomNumbers" text="Generate Random Processes ">
+         <effect>
+            <DropShadow />
+         </effect></Button>
+      <Text layoutX="17.0" layoutY="624.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Average Turn Around =" wrappingWidth="163.9720458984375">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="403.0" layoutY="624.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Average Waiting Time =" wrappingWidth="163.9720458984375">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
+      <TableView fx:id="tableView" layoutY="207.0" prefHeight="372.0" prefWidth="801.0">
+        <columns>
+          <TableColumn fx:id="processID" prefWidth="89.59997272491455" text="Process ID" />
+          <TableColumn fx:id="ArrivalTime" prefWidth="84.80001831054688" text="Arrival Time" />
+            <TableColumn fx:id="BurstTime" prefWidth="90.39996337890625" text="Burst Time" />
+            <TableColumn fx:id="Priority" prefWidth="65.5999755859375" text="Priority" />
+            <TableColumn fx:id="col_finishTime" prefWidth="82.4000244140625" text="Finish Time" />
+            <TableColumn fx:id="col_TA" prefWidth="112.0" text="Turn Around" />
+            <TableColumn fx:id="col_WTA" prefWidth="157.5999755859375" text="Weighted Turn Around" />
+            <TableColumn fx:id="col_Wait" prefWidth="118.39996337890625" text="Waiting Time" />
+        </columns>
+      </TableView>
+      <Label layoutX="14.0" layoutY="96.0" prefHeight="40.0" prefWidth="231.0" text="Enter number of process to generate ">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="pNumText" layoutX="245.0" layoutY="103.0" prefHeight="26.0" prefWidth="55.0" />
+      <Label fx:id="SJFLabel" alignment="CENTER" layoutX="17.0" layoutY="136.0" prefHeight="62.0" prefWidth="778.0">
+         <font>
+            <Font name="System Bold" size="43.0" />
+         </font>
+      </Label>
+      <Label fx:id="AVG_TA_LABEL" layoutX="190.0" layoutY="602.0" prefHeight="34.0" prefWidth="190.0" />
+      <Label fx:id="AVG_TA_LABEL" layoutX="176.0" layoutY="601.0" prefHeight="34.0" prefWidth="153.0">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="AVG_WT_LABEL" layoutX="577.0" layoutY="601.0" prefHeight="35.0" prefWidth="180.0">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font></Label>
+      <AnchorPane layoutX="801.0" layoutY="90.0" prefHeight="603.0" prefWidth="180.0" style="-fx-background-color: #1976D2 #19#536DFE76D2;" AnchorPane.leftAnchor="801.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button alignment="CENTER" layoutX="14.0" layoutY="113.0" mnemonicParsing="false" onAction="#SJF_alg" prefHeight="50.0" prefWidth="70.0" text="SJF" textFill="#212121" AnchorPane.leftAnchor="14.0">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#bdbdbd" />
+                     </light>
+                  </Lighting>
+               </effect>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button alignment="CENTER" layoutX="93.0" layoutY="113.0" mnemonicParsing="false" onAction="#SRTF_alg" prefHeight="50.0" prefWidth="70.0" text="SRTF" textFill="#212121" AnchorPane.leftAnchor="93.0">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#bdbdbd" />
+                     </light>
+                  </Lighting>
+               </effect>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button alignment="CENTER" layoutX="16.0" layoutY="246.0" mnemonicParsing="false" onAction="#EP_With_Preemption_alg" prefHeight="50.0" prefWidth="154.0" text="EP with Preemption" textFill="#212121" AnchorPane.leftAnchor="16.0">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#bdbdbd" />
+                     </light>
+                  </Lighting>
+               </effect>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="EP_Without_btn" alignment="CENTER" layoutX="14.0" layoutY="311.0" mnemonicParsing="false" onAction="#EP_Without_Preemption_alg" prefHeight="50.0" prefWidth="154.0" text="EP without Preemption" textFill="#212121" AnchorPane.leftAnchor="14.0">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#bdbdbd" />
+                     </light>
+                  </Lighting>
+               </effect>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button alignment="CENTER" layoutX="14.0" layoutY="181.0" mnemonicParsing="false" onAction="#FCFS_alg" prefHeight="50.0" prefWidth="154.0" text="FCFS" textFill="#212121" AnchorPane.leftAnchor="14.0">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#bdbdbd" />
+                     </light>
+                  </Lighting>
+               </effect>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button alignment="CENTER" layoutX="14.0" layoutY="431.0" mnemonicParsing="false" onAction="#Multi_alg" prefHeight="50.0" prefWidth="154.0" text="Multi-Programming" textFill="#212121">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#bdbdbd" />
+                     </light>
+                  </Lighting>
+               </effect>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER" layoutX="-3.0" layoutY="55.0" prefHeight="18.0" prefWidth="190.0" text="Choose an algorithm " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txt_cpuMulti" layoutX="20.0" layoutY="385.0" prefHeight="35.0" prefWidth="139.0" promptText="CPU Percentage (i.e 20)" />
+            <Button layoutX="1.0" layoutY="531.0" mnemonicParsing="false" onAction="#OpenNew" prefHeight="50.0" prefWidth="180.0" text="Show Grant Chart">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
